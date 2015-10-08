@@ -10,14 +10,21 @@ import UIKit
 
 class MyFirstClassTableViewController: UITableViewController {
 
+    var myFirstClassObjects = [MyFirstClass]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        loadSampleMyFirstClassObjects()
+    }
+    
+    func loadSampleMyFirstClassObjects()
+    {
+        let myFirstClassObject1 = MyFirstClass(headName: "Masha Kadan", someText: "jdfkdsghjd ejhydjs rhujf")
+        let myFirstClassObject2 = MyFirstClass(headName: "Masha Kadan", someText: "dskjdkj jhjds jhjddhdjjddjdjdjdjd")
+        myFirstClassObjects += [myFirstClassObject1, myFirstClassObject2]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +36,28 @@ class MyFirstClassTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return myFirstClassObjects.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+       
+        let cellId = "MyFirstClassTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! MyFirstClassTableViewCell
+        
+        
+        let myFirstClassObject = myFirstClassObjects[indexPath.row]
+        cell.headNameLabel.text = myFirstClassObject.headName
+        cell.someNumberLabel.text = myFirstClassObject.someText
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

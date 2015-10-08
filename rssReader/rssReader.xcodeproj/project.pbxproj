@@ -14,6 +14,12 @@
 		EFC165841BC6C41200B6FCB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC165821BC6C41200B6FCB3 /* LaunchScreen.storyboard */; };
 		EFC1658F1BC6C41200B6FCB3 /* rssReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1658E1BC6C41200B6FCB3 /* rssReaderTests.swift */; };
 		EFC1659A1BC6C41200B6FCB3 /* rssReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC165991BC6C41200B6FCB3 /* rssReaderUITests.swift */; };
+		EFC209F61BC6C825007FBCF6 /* MyFirstClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F51BC6C825007FBCF6 /* MyFirstClass.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209F71BC6C825007FBCF6 /* MyFirstClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F51BC6C825007FBCF6 /* MyFirstClass.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209F91BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F81BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209FA1BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F81BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209FC1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209FB1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209FD1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209FB1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,9 @@
 		EFC165951BC6C41200B6FCB3 /* rssReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rssReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC165991BC6C41200B6FCB3 /* rssReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rssReaderUITests.swift; sourceTree = "<group>"; };
 		EFC1659B1BC6C41200B6FCB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFC209F51BC6C825007FBCF6 /* MyFirstClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFirstClass.swift; sourceTree = "<group>"; };
+		EFC209F81BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFirstClassTableViewCell.swift; sourceTree = "<group>"; };
+		EFC209FB1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFirstClassTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +109,9 @@
 				EFC165791BC6C41200B6FCB3 /* AppDelegate.swift */,
 				EFC1657B1BC6C41200B6FCB3 /* ViewController.swift */,
 				EFC1657D1BC6C41200B6FCB3 /* Main.storyboard */,
+				EFC209FB1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift */,
+				EFC209F81BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift */,
+				EFC209F51BC6C825007FBCF6 /* MyFirstClass.swift */,
 				EFC165801BC6C41200B6FCB3 /* Assets.xcassets */,
 				EFC165821BC6C41200B6FCB3 /* LaunchScreen.storyboard */,
 				EFC165851BC6C41200B6FCB3 /* Info.plist */,
@@ -256,7 +268,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFC1657C1BC6C41200B6FCB3 /* ViewController.swift in Sources */,
+				EFC209F91BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift in Sources */,
+				EFC209F61BC6C825007FBCF6 /* MyFirstClass.swift in Sources */,
 				EFC1657A1BC6C41200B6FCB3 /* AppDelegate.swift in Sources */,
+				EFC209FC1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC209FA1BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift in Sources */,
 				EFC1658F1BC6C41200B6FCB3 /* rssReaderTests.swift in Sources */,
+				EFC209F71BC6C825007FBCF6 /* MyFirstClass.swift in Sources */,
+				EFC209FD1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +501,7 @@
 				EFC165A01BC6C41200B6FCB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFC165A11BC6C41200B6FCB3 /* Build configuration list for PBXNativeTarget "rssReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +510,7 @@
 				EFC165A31BC6C41200B6FCB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFC165A41BC6C41200B6FCB3 /* Build configuration list for PBXNativeTarget "rssReaderUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +519,7 @@
 				EFC165A61BC6C41200B6FCB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
