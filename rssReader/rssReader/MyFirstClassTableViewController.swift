@@ -10,13 +10,15 @@ import UIKit
 
 class MyFirstClassTableViewController: UITableViewController {
 
+    
     var myFirstClassObjects = [MyFirstClass]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MyFirstClassTableViewCell")
         loadSampleMyFirstClassObjects()
+        
     }
     
     func loadSampleMyFirstClassObjects()
@@ -49,7 +51,6 @@ class MyFirstClassTableViewController: UITableViewController {
        
         let cellId = "MyFirstClassTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! MyFirstClassTableViewCell
-        
         
         let myFirstClassObject = myFirstClassObjects[indexPath.row]
         cell.headNameLabel.text = myFirstClassObject.headName

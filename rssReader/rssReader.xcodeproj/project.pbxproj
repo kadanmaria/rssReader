@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EFC1657A1BC6C41200B6FCB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC165791BC6C41200B6FCB3 /* AppDelegate.swift */; };
-		EFC1657C1BC6C41200B6FCB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1657B1BC6C41200B6FCB3 /* ViewController.swift */; };
 		EFC1657F1BC6C41200B6FCB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC1657D1BC6C41200B6FCB3 /* Main.storyboard */; };
 		EFC165811BC6C41200B6FCB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFC165801BC6C41200B6FCB3 /* Assets.xcassets */; };
 		EFC165841BC6C41200B6FCB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC165821BC6C41200B6FCB3 /* LaunchScreen.storyboard */; };
@@ -42,7 +41,6 @@
 /* Begin PBXFileReference section */
 		EFC165761BC6C41200B6FCB3 /* rssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC165791BC6C41200B6FCB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFC1657B1BC6C41200B6FCB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EFC1657E1BC6C41200B6FCB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFC165801BC6C41200B6FCB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFC165831BC6C41200B6FCB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				EFC165791BC6C41200B6FCB3 /* AppDelegate.swift */,
-				EFC1657B1BC6C41200B6FCB3 /* ViewController.swift */,
 				EFC1657D1BC6C41200B6FCB3 /* Main.storyboard */,
 				EFC209FB1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift */,
 				EFC209F81BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift */,
@@ -204,6 +201,7 @@
 				TargetAttributes = {
 					EFC165751BC6C41200B6FCB3 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 5RZDJ84Y2T;
 					};
 					EFC165891BC6C41200B6FCB3 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -267,7 +265,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFC1657C1BC6C41200B6FCB3 /* ViewController.swift in Sources */,
 				EFC209F91BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift in Sources */,
 				EFC209F61BC6C825007FBCF6 /* MyFirstClass.swift in Sources */,
 				EFC1657A1BC6C41200B6FCB3 /* AppDelegate.swift in Sources */,
@@ -416,10 +413,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = rssReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.rssReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -427,10 +427,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = rssReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.rssReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

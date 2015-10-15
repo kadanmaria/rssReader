@@ -5,23 +5,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="rssReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
         <!--My First Class Table View Controller-->
         <scene sceneID="Jzc-Z9-SF1">
             <objects>
@@ -38,14 +21,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szS-nC-Al1">
-                                            <rect key="frame" x="20" y="8" width="199" height="27"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szS-nC-Al1">
+                                            <rect key="frame" x="28" y="8" width="514" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1c-BZ-Bix">
-                                            <rect key="frame" x="20" y="43" width="556" height="48"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1c-BZ-Bix">
+                                            <rect key="frame" x="28" y="34" width="544" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -55,10 +38,18 @@
                                         <constraint firstItem="c1c-BZ-Bix" firstAttribute="leading" secondItem="fAn-i0-7y5" secondAttribute="leadingMargin" constant="20" id="9wo-Xj-w8G"/>
                                         <constraint firstItem="szS-nC-Al1" firstAttribute="leading" secondItem="fAn-i0-7y5" secondAttribute="leadingMargin" constant="20" id="ISD-8v-lzD"/>
                                         <constraint firstItem="c1c-BZ-Bix" firstAttribute="top" secondItem="szS-nC-Al1" secondAttribute="bottom" constant="5" id="LdY-tk-ntM"/>
+                                        <constraint firstItem="c1c-BZ-Bix" firstAttribute="top" secondItem="szS-nC-Al1" secondAttribute="bottom" constant="8" id="NiL-oZ-V96"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="c1c-BZ-Bix" secondAttribute="trailing" constant="20" id="U0F-Ms-unq"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="szS-nC-Al1" secondAttribute="trailing" constant="50" id="c7K-Og-eyi"/>
+                                        <constraint firstAttribute="topMargin" secondItem="szS-nC-Al1" secondAttribute="top" id="o6L-fN-LKC"/>
                                         <constraint firstItem="c1c-BZ-Bix" firstAttribute="top" secondItem="szS-nC-Al1" secondAttribute="bottom" constant="5" id="zxA-b4-3tq"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="NiL-oZ-V96"/>
+                                            <exclude reference="zxA-b4-3tq"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="headNameLabel" destination="szS-nC-Al1" id="OSi-eP-zzv"/>
@@ -74,7 +65,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YnZ-zA-YEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-380" y="418"/>
+            <point key="canvasLocation" x="-324" y="16"/>
         </scene>
     </scenes>
 </document>
