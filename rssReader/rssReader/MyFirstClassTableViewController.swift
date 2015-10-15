@@ -22,8 +22,8 @@ class MyFirstClassTableViewController: UITableViewController {
     
     func loadSampleMyFirstClassObjects()
     {
-        let myFirstClassObject1 = MyFirstClass(headName: "Masha Kadan", someText: "jdfkdsghjd ejhydjs rhujf")
-        let myFirstClassObject2 = MyFirstClass(headName: "Masha Kadan", someText: "dskjdkj jhjds jhjddhdjjddjdjdjdjd")
+        let myFirstClassObject1 = MyFirstClass(headName: "Masha Kadan", someText: "Very pleasant girl with short hair gjhyfj djfd hjdf  hkejrhfk khfj hkjhkh kjehfkjs hkjh fkjsh jkhekj hrfkjehfkjs hewkjhfk hsdkjfh k")
+        let myFirstClassObject2 = MyFirstClass(headName: "Artiom Mazurkevich", someText: "loh")
         myFirstClassObjects += [myFirstClassObject1, myFirstClassObject2]
         
     }
