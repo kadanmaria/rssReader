@@ -201,7 +201,6 @@
 				TargetAttributes = {
 					EFC165751BC6C41200B6FCB3 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 5RZDJ84Y2T;
 					};
 					EFC165891BC6C41200B6FCB3 = {
 						CreatedOnToolsVersion = 7.0.1;

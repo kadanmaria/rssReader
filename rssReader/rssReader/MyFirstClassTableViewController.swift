@@ -22,10 +22,13 @@ class MyFirstClassTableViewController: UITableViewController {
     
     func loadSampleMyFirstClassObjects()
     {
-        let myFirstClassObject1 = MyFirstClass(headName: "Masha Kadan", someText: "Very pleasant girl with short hair gjhyfj djfd hjdf  hkejrhfk khfj hkjhkh kjehfkjs hkjh fkjsh jkhekj hrfkjehfkjs hewkjhfk hsdkjfh k")
-        let myFirstClassObject2 = MyFirstClass(headName: "Artiom Mazurkevich", someText: "loh")
-        myFirstClassObjects += [myFirstClassObject1, myFirstClassObject2]
+        let img1 = UIImage(named: "cat")!
+        let myFirstClassObject1 = MyFirstClass(headName: "Masha Kadan", someText: "Very pleasant girl with short hair gjhyfj djfd hjdf  hkejrhfk khfj hkjhkh kjehfkjs hkjh fkjsh jkhekj hrfkjehfkjs hewkjhfk hsdkjfh k", image: img1)
         
+        let img2 = UIImage(named: "photo1")!
+        let myFirstClassObject2 = MyFirstClass(headName: "Artiom Mazurkevich", someText: "loh", image: img2)
+        
+        myFirstClassObjects += [myFirstClassObject1, myFirstClassObject2]
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +57,7 @@ class MyFirstClassTableViewController: UITableViewController {
         let myFirstClassObject = myFirstClassObjects[indexPath.row]
         cell.headNameLabel.text = myFirstClassObject.headName
         cell.someNumberLabel.text = myFirstClassObject.someText
+        cell.imageImageView.image = myFirstClassObject.image
         
         return cell
     }

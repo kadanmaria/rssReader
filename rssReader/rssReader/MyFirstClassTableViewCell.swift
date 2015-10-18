@@ -12,7 +12,7 @@ class MyFirstClassTableViewCell: UITableViewCell {
 
     @IBOutlet weak var headNameLabel: UILabel!
     @IBOutlet weak var someNumberLabel: UILabel!
-    
+    @IBOutlet weak var imageImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -12,10 +12,12 @@ class MyFirstClass{
     
     var headName: String
     var someText: String
+    var image: UIImage?
     
-    init (headName: String, someText: String){
+    init (headName: String, someText: String, image: UIImage?){
         self.headName = headName
         self.someText = someText
+        self.image = image
     }
     
 }

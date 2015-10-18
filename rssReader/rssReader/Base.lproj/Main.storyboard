@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--My First Class Table View Controller-->
+        <!--List of news-->
         <scene sceneID="Jzc-Z9-SF1">
             <objects>
                 <tableViewController id="v5d-cy-vaC" customClass="MyFirstClassTableViewController" customModule="rssReader" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,19 +27,18 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qE-WT-clm">
-                                            <rect key="frame" x="8" y="8" width="84" height="84"/>
-                                            <color key="backgroundColor" red="1" green="0.45389593411377827" blue="0.80976547164522905" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="84" id="6tC-0J-snI"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1c-BZ-Bix">
                                             <rect key="frame" x="105" y="37" width="437" height="54"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView contentMode="scaleAspectFit" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="2qE-WT-clm">
+                                            <rect key="frame" x="8" y="8" width="84" height="83"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="84" id="6tC-0J-snI"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="2qE-WT-clm" firstAttribute="bottom" secondItem="c1c-BZ-Bix" secondAttribute="bottom" id="0My-qQ-z8A"/>
@@ -75,7 +74,9 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="headNameLabel" destination="szS-nC-Al1" id="OSi-eP-zzv"/>
+                                    <outlet property="imageImageView" destination="2qE-WT-clm" id="Pr2-9N-9p6"/>
                                     <outlet property="someNumberLabel" destination="c1c-BZ-Bix" id="jfJ-al-CKp"/>
+                                    <segue destination="xkH-NR-TXb" kind="show" id="OVJ-fM-SJc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -84,13 +85,15 @@
                             <outlet property="delegate" destination="v5d-cy-vaC" id="0c0-k6-IOi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="1y7-6h-vu2"/>
+                    <navigationItem key="navigationItem" title="List of news" id="1y7-6h-vu2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="lHH-Bm-K25"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YnZ-zA-YEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-49" y="191"/>
         </scene>
-        <!--View Controller-->
+        <!--News-->
         <scene sceneID="NuW-be-NdI">
             <objects>
                 <viewController id="xkH-NR-TXb" sceneMemberID="viewController">
@@ -103,12 +106,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PFf-QZ-jL2">
-                                <rect key="frame" x="42" y="59" width="240" height="128"/>
+                                <rect key="frame" x="8" y="80" width="585" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="News" id="FXZ-5I-PAm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTC-rx-8A0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
