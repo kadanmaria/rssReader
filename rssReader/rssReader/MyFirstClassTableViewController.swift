@@ -23,10 +23,10 @@ class MyFirstClassTableViewController: UITableViewController {
     func loadSampleMyFirstClassObjects()
     {
         let img1 = UIImage(named: "cat")!
-        let myFirstClassObject1 = MyFirstClass(headName: "Masha Kadan", someText: "Very pleasant girl with short hair gjhyfj djfd hjdf  hkejrhfk khfj hkjhkh kjehfkjs hkjh fkjsh jkhekj hrfkjehfkjs hewkjhfk hsdkjfh k", image: img1)
+        let myFirstClassObject1 = MyFirstClass(headName: "Masha Kadan", someText: "Miau verride to support conditional editing of the table view override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath:Return fals Miau verride to support conditional editing of the table view override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath:Return fals", image: img1)
         
         let img2 = UIImage(named: "photo1")!
-        let myFirstClassObject2 = MyFirstClass(headName: "Artiom Mazurkevich", someText: "loh", image: img2)
+        let myFirstClassObject2 = MyFirstClass(headName: "Artiom Mazurkevich", someText: "loh :3", image: img2)
         
         myFirstClassObjects += [myFirstClassObject1, myFirstClassObject2]
     }
