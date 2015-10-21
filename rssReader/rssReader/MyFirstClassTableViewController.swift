@@ -8,17 +8,94 @@
 
 import UIKit
 
-class MyFirstClassTableViewController: UITableViewController {
-
+class MyFirstClassTableViewController: UITableViewController, NSXMLParserDelegate {
+    
+    
     
     var myFirstClassObjects = [MyFirstClass]()
     
+    var xmlParser: NSXMLParser!
+    
+    func refreshNews(){
+       // let urlString = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
+        let urlString = NSURL(string: "http://www.blubrry.com/feeds/onorte.xml")
+        xmlParser = NSXMLParser(contentsOfURL: urlString!)
+        xmlParser.delegate = self
+        xmlParser.parse()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshNews()
         loadSampleMyFirstClassObjects()
         
     }
+    
+    class News: NSObject{
+        var newsTitle = ""
+        var newsDescription = ""
+    }
+    
+    var news = [News]()
+    
+    var entryTitle: String!
+    var entryDescription: String!
+    
+    var currentParsedElement = String()
+    var weAreInsideAnItem = false
+    
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attribute attributeDict: [NSObject: AnyObject]){
+        if elementName == "item"{
+            weAreInsideAnItem = true
+        }
+        if weAreInsideAnItem{
+            switch elementName{
+            case "title":
+                entryTitle = String()
+                currentParsedElement = "title"
+            case "itunes:summary":
+                entryDescription = String()
+                currentParsedElement = "itunes:summary"
+            default: break
+            }
+        }
+    }
+    
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
+        if weAreInsideAnItem{
+            switch currentParsedElement{
+            case "title":
+                entryTitle = entryTitle + string
+            case "itunes:summary":
+                entryDescription = entryDescription + string
+            default: break
+                
+            }
+        }
+    }
+    
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if weAreInsideAnItem{
+            switch elementName{
+            case "title":
+                currentParsedElement = ""
+            case "itunes:summary":
+                currentParsedElement = ""
+            default: break
+            }
+            if elementName == "item"{
+                let entryNews = News()
+                entryNews.newsTitle = entryTitle
+                entryNews.newsDescription = entryDescription
+                news.append(entryNews)
+                weAreInsideAnItem = false
+            }
+        }
+    }
+    
+    
+    
+    
     
     func loadSampleMyFirstClassObjects()
     {
