@@ -20,12 +20,17 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
     var entryDescription: String!
     var entryPubDate: String!
     var entryLink: String!
+    var entryImageLink: String!
+    
+    var element: String?
     
     var currentParsedElement = String()
     var weAreInsideAnItem = false
     
     func refreshNews(){
-        let urlString = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
+        //let urlString = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
+        //let urlString = NSURL(string: "http://news.tut.by/rss/index.rss")
+        let urlString = NSURL(string: "http://deepapple.com/news/rss/rss.xmlinfo.plist")
         let xmlParser = NSXMLParser(contentsOfURL: urlString!)
         xmlParser!.delegate = self
         xmlParser!.parse()
@@ -61,7 +66,9 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
             case "title":
                 entryTitle = entryTitle + string
             case "description":
-                entryDescription = entryDescription + string
+                var data = string.stringByReplacingOccurrencesOfString("<div style=\"float:right\">", withString: "")
+                entryDescription = entryDescription + data
+                
             case "pubDate":
                 entryPubDate = entryPubDate + string
             case "link":
@@ -87,10 +94,14 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
             }
             if elementName == "item"{
                 let entryNews = News()
-                entryNews.newsTitle = entryTitle
-                entryNews.newsDescription = entryDescription
-                entryNews.newsPubDate = entryPubDate
-                entryNews.newsLink = entryLink
+                if entryTitle != nil{
+                    entryNews.newsTitle = entryTitle}
+                if entryDescription != nil{
+                    entryNews.newsDescription = entryDescription}
+                if entryPubDate != nil {
+                    entryNews.newsPubDate = entryPubDate}
+                if entryLink != nil{
+                    entryNews.newsLink = entryLink}
                 news.append(entryNews)
                 weAreInsideAnItem = false
             }
@@ -183,8 +194,7 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
         if segue.identifier == "WebViewSegue"{
             let destinationVC = segue.destinationViewController as! NewsViewController
             if let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow{
-     //       destinationVC.currentNewsObj = news[indexPath.row]
-            destinationVC.url = news[indexPath.row].newsLink
+                destinationVC.url = news[indexPath.row].newsLink
             }
         }
         

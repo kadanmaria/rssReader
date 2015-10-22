@@ -11,18 +11,16 @@ import UIKit
 class NewsViewController: UIViewController {
     
     
+    var url=""
     
     @IBOutlet weak var newsWebView: UIWebView!
 
-//    var currentNewsObj=News()
-    var url = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         let webUrl = NSURL (string: url)
         let requestObj = NSURLRequest(URL: webUrl!)
         newsWebView.loadRequest(requestObj)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
