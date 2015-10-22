@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84E31CB71BD86FDE007ED35B /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E31CB61BD86FDE007ED35B /* NewsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		EFC1657A1BC6C41200B6FCB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC165791BC6C41200B6FCB3 /* AppDelegate.swift */; };
 		EFC1657F1BC6C41200B6FCB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC1657D1BC6C41200B6FCB3 /* Main.storyboard */; };
 		EFC165811BC6C41200B6FCB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFC165801BC6C41200B6FCB3 /* Assets.xcassets */; };
 		EFC165841BC6C41200B6FCB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC165821BC6C41200B6FCB3 /* LaunchScreen.storyboard */; };
 		EFC1658F1BC6C41200B6FCB3 /* rssReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1658E1BC6C41200B6FCB3 /* rssReaderTests.swift */; };
 		EFC1659A1BC6C41200B6FCB3 /* rssReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC165991BC6C41200B6FCB3 /* rssReaderUITests.swift */; };
-		EFC209F61BC6C825007FBCF6 /* MyFirstClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F51BC6C825007FBCF6 /* MyFirstClass.swift */; settings = {ASSET_TAGS = (); }; };
-		EFC209F71BC6C825007FBCF6 /* MyFirstClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F51BC6C825007FBCF6 /* MyFirstClass.swift */; settings = {ASSET_TAGS = (); }; };
-		EFC209F91BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F81BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		EFC209FA1BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F81BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		EFC209FC1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209FB1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		EFC209FD1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209FB1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209F61BC6C825007FBCF6 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F51BC6C825007FBCF6 /* News.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209F71BC6C825007FBCF6 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F51BC6C825007FBCF6 /* News.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209F91BC6CC3F007FBCF6 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F81BC6CC3F007FBCF6 /* NewsTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209FA1BC6CC3F007FBCF6 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209F81BC6CC3F007FBCF6 /* NewsTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209FC1BC6D1DE007FBCF6 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209FB1BC6D1DE007FBCF6 /* NewsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		EFC209FD1BC6D1DE007FBCF6 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC209FB1BC6D1DE007FBCF6 /* NewsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84E31CB61BD86FDE007ED35B /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		EFC165761BC6C41200B6FCB3 /* rssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC165791BC6C41200B6FCB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFC1657E1BC6C41200B6FCB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,9 +53,9 @@
 		EFC165951BC6C41200B6FCB3 /* rssReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rssReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC165991BC6C41200B6FCB3 /* rssReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rssReaderUITests.swift; sourceTree = "<group>"; };
 		EFC1659B1BC6C41200B6FCB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EFC209F51BC6C825007FBCF6 /* MyFirstClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFirstClass.swift; sourceTree = "<group>"; };
-		EFC209F81BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFirstClassTableViewCell.swift; sourceTree = "<group>"; };
-		EFC209FB1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFirstClassTableViewController.swift; sourceTree = "<group>"; };
+		EFC209F51BC6C825007FBCF6 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		EFC209F81BC6CC3F007FBCF6 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		EFC209FB1BC6D1DE007FBCF6 /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +107,11 @@
 			isa = PBXGroup;
 			children = (
 				EFC165791BC6C41200B6FCB3 /* AppDelegate.swift */,
+				84E31CB61BD86FDE007ED35B /* NewsViewController.swift */,
 				EFC1657D1BC6C41200B6FCB3 /* Main.storyboard */,
-				EFC209FB1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift */,
-				EFC209F81BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift */,
-				EFC209F51BC6C825007FBCF6 /* MyFirstClass.swift */,
+				EFC209FB1BC6D1DE007FBCF6 /* NewsTableViewController.swift */,
+				EFC209F81BC6CC3F007FBCF6 /* NewsTableViewCell.swift */,
+				EFC209F51BC6C825007FBCF6 /* News.swift */,
 				EFC165801BC6C41200B6FCB3 /* Assets.xcassets */,
 				EFC165821BC6C41200B6FCB3 /* LaunchScreen.storyboard */,
 				EFC165851BC6C41200B6FCB3 /* Info.plist */,
@@ -264,10 +267,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFC209F91BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift in Sources */,
-				EFC209F61BC6C825007FBCF6 /* MyFirstClass.swift in Sources */,
+				EFC209F91BC6CC3F007FBCF6 /* NewsTableViewCell.swift in Sources */,
+				EFC209F61BC6C825007FBCF6 /* News.swift in Sources */,
 				EFC1657A1BC6C41200B6FCB3 /* AppDelegate.swift in Sources */,
-				EFC209FC1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift in Sources */,
+				84E31CB71BD86FDE007ED35B /* NewsViewController.swift in Sources */,
+				EFC209FC1BC6D1DE007FBCF6 /* NewsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFC209FA1BC6CC3F007FBCF6 /* MyFirstClassTableViewCell.swift in Sources */,
+				EFC209FA1BC6CC3F007FBCF6 /* NewsTableViewCell.swift in Sources */,
 				EFC1658F1BC6C41200B6FCB3 /* rssReaderTests.swift in Sources */,
-				EFC209F71BC6C825007FBCF6 /* MyFirstClass.swift in Sources */,
-				EFC209FD1BC6D1DE007FBCF6 /* MyFirstClassTableViewController.swift in Sources */,
+				EFC209F71BC6C825007FBCF6 /* News.swift in Sources */,
+				EFC209FD1BC6D1DE007FBCF6 /* NewsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

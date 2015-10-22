@@ -1,23 +1,15 @@
 //
-//  MyFirstClassViewController.swift
+//  NewsViewController.swift
 //  rssReader
 //
-//  Created by Admin on 21.10.15.
+//  Created by Admin on 22.10.15.
 //  Copyright © 2015 iStudent. All rights reserved.
 //
 
 import UIKit
 
-class MyFirstClassViewController: UIViewController, NSXMLParserDelegate {
+class NewsViewController: UIViewController {
 
-    
-    var url = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
-    var xmlParser = NSXMLParser(contentsOfURL: url)
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

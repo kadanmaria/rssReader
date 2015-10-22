@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MyFirstClassTableViewCell: UITableViewCell {
+class NewsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var headNameLabel: UILabel!
-    @IBOutlet weak var someNumberLabel: UILabel!
-    @IBOutlet weak var imageImageView: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

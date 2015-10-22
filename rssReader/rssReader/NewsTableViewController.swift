@@ -8,43 +8,31 @@
 
 import UIKit
 
-class MyFirstClassTableViewController: UITableViewController, NSXMLParserDelegate {
+class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
+   
     
-    
-    
-    var myFirstClassObjects = [MyFirstClass]()
+   //MARK: Parser
     
     var xmlParser: NSXMLParser!
-    
-    func refreshNews(){
-       // let urlString = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
-        let urlString = NSURL(string: "http://www.blubrry.com/feeds/onorte.xml")
-        xmlParser = NSXMLParser(contentsOfURL: urlString!)
-        xmlParser.delegate = self
-        xmlParser.parse()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        refreshNews()
-        loadSampleMyFirstClassObjects()
-        
-    }
-    
-    class News: NSObject{
-        var newsTitle = ""
-        var newsDescription = ""
-    }
-    
     var news = [News]()
     
     var entryTitle: String!
     var entryDescription: String!
+    var entryPubDate: String!
+    var entryLink: String!
     
     var currentParsedElement = String()
     var weAreInsideAnItem = false
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attribute attributeDict: [NSObject: AnyObject]){
+    func refreshNews(){
+        let urlString = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
+        let xmlParser = NSXMLParser(contentsOfURL: urlString!)
+        xmlParser!.delegate = self
+        xmlParser!.parse()
+    }
+    
+    
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         if elementName == "item"{
             weAreInsideAnItem = true
         }
@@ -53,9 +41,15 @@ class MyFirstClassTableViewController: UITableViewController, NSXMLParserDelegat
             case "title":
                 entryTitle = String()
                 currentParsedElement = "title"
-            case "itunes:summary":
+            case "description":
                 entryDescription = String()
-                currentParsedElement = "itunes:summary"
+                currentParsedElement = "description"
+            case "pubDate":
+                entryPubDate = String()
+                currentParsedElement = "pubDate"
+            case "link":
+                entryLink = String()
+                currentParsedElement = "link"
             default: break
             }
         }
@@ -66,8 +60,12 @@ class MyFirstClassTableViewController: UITableViewController, NSXMLParserDelegat
             switch currentParsedElement{
             case "title":
                 entryTitle = entryTitle + string
-            case "itunes:summary":
+            case "description":
                 entryDescription = entryDescription + string
+            case "pubDate":
+                entryPubDate = entryPubDate + string
+            case "link":
+                entryLink = entryLink + string
             default: break
                 
             }
@@ -79,7 +77,11 @@ class MyFirstClassTableViewController: UITableViewController, NSXMLParserDelegat
             switch elementName{
             case "title":
                 currentParsedElement = ""
-            case "itunes:summary":
+            case "description":
+                currentParsedElement = ""
+            case "pubDate":
+                currentParsedElement = ""
+            case "link":
                 currentParsedElement = ""
             default: break
             }
@@ -87,6 +89,8 @@ class MyFirstClassTableViewController: UITableViewController, NSXMLParserDelegat
                 let entryNews = News()
                 entryNews.newsTitle = entryTitle
                 entryNews.newsDescription = entryDescription
+                entryNews.newsPubDate = entryPubDate
+                entryNews.newsLink = entryLink
                 news.append(entryNews)
                 weAreInsideAnItem = false
             }
@@ -94,24 +98,6 @@ class MyFirstClassTableViewController: UITableViewController, NSXMLParserDelegat
     }
     
     
-    
-    
-    
-    func loadSampleMyFirstClassObjects()
-    {
-        let img1 = UIImage(named: "cat")!
-        let myFirstClassObject1 = MyFirstClass(headName: "Masha Kadan", someText: "Miau verride to support conditional editing of the table view override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath:Return fals Miau verride to support conditional editing of the table view override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath:Return fals", image: img1)
-        
-        let img2 = UIImage(named: "photo1")!
-        let myFirstClassObject2 = MyFirstClass(headName: "Artiom Mazurkevich", someText: "loh :3", image: img2)
-        
-        myFirstClassObjects += [myFirstClassObject1, myFirstClassObject2]
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
@@ -122,23 +108,35 @@ class MyFirstClassTableViewController: UITableViewController, NSXMLParserDelegat
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return myFirstClassObjects.count
+        return news.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        
-        let cellId = "MyFirstClassTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! MyFirstClassTableViewCell
+        let cellId = "NewsTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! NewsTableViewCell
         
-        let myFirstClassObject = myFirstClassObjects[indexPath.row]
-        cell.headNameLabel.text = myFirstClassObject.headName
-        cell.someNumberLabel.text = myFirstClassObject.someText
-        cell.imageImageView.image = myFirstClassObject.image
-        
+        let newsObj = news[indexPath.row]
+        cell.headNameLabel.text = newsObj.newsTitle
+        cell.descriptionLabel.text = newsObj.newsDescription
+        cell.dateLabel.text = newsObj.newsPubDate
+    
         return cell
     }
     
+    //MARK: System functions
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        refreshNews()
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
     /*
     // Override to support conditional editing of the table view.
