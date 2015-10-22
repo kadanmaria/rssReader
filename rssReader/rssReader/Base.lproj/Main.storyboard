@@ -70,7 +70,7 @@
                                     <outlet property="descriptionLabel" destination="c1c-BZ-Bix" id="Tew-tV-fZG"/>
                                     <outlet property="headNameLabel" destination="szS-nC-Al1" id="OSi-eP-zzv"/>
                                     <outlet property="photoImageView" destination="eA8-Mi-9n9" id="EMr-2S-nGl"/>
-                                    <segue destination="xkH-NR-TXb" kind="show" id="OVJ-fM-SJc"/>
+                                    <segue destination="xkH-NR-TXb" kind="show" identifier="WebViewSegue" id="OVJ-fM-SJc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -90,7 +90,7 @@
         <!--News-->
         <scene sceneID="NuW-be-NdI">
             <objects>
-                <viewController id="xkH-NR-TXb" sceneMemberID="viewController">
+                <viewController id="xkH-NR-TXb" customClass="NewsViewController" customModule="rssReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Vq-GN-l0A"/>
                         <viewControllerLayoutGuide type="bottom" id="ieB-4W-nVC"/>
@@ -107,6 +107,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="News" id="FXZ-5I-PAm"/>
+                    <connections>
+                        <outlet property="newsWebView" destination="PFf-QZ-jL2" id="kbX-3X-aYW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTC-rx-8A0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -121,7 +121,7 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
         cell.headNameLabel.text = newsObj.newsTitle
         cell.descriptionLabel.text = newsObj.newsDescription
         cell.dateLabel.text = newsObj.newsPubDate
-    
+        
         return cell
     }
     
@@ -173,14 +173,22 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "WebViewSegue"{
+            let destinationVC = segue.destinationViewController as! NewsViewController
+            if let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow{
+     //       destinationVC.currentNewsObj = news[indexPath.row]
+            destinationVC.url = news[indexPath.row].newsLink
+            }
+        }
+        
     }
-    */
+    
 
 }
