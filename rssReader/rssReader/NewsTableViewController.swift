@@ -22,15 +22,14 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
     var entryLink: String!
     var entryImageLink: String!
     
-    var element: String?
     
     var currentParsedElement = String()
     var weAreInsideAnItem = false
     
     func refreshNews(){
         //let urlString = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
-        //let urlString = NSURL(string: "http://news.tut.by/rss/index.rss")
-        let urlString = NSURL(string: "http://deepapple.com/news/rss/rss.xmlinfo.plist")
+        let urlString = NSURL(string: "http://news.tut.by/rss/index.rss")
+        //let urlString = NSURL(string: "http://deepapple.com/news/rss/rss.xmlinfo.plist")
         let xmlParser = NSXMLParser(contentsOfURL: urlString!)
         xmlParser!.delegate = self
         xmlParser!.parse()
@@ -55,6 +54,9 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
             case "link":
                 entryLink = String()
                 currentParsedElement = "link"
+            case "enclosure":
+                entryImageLink = attributeDict["url"] as String!
+                currentParsedElement = "enclosure"
             default: break
             }
         }
@@ -66,13 +68,14 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
             case "title":
                 entryTitle = entryTitle + string
             case "description":
-                var data = string.stringByReplacingOccurrencesOfString("<div style=\"float:right\">", withString: "")
-                entryDescription = entryDescription + data
+                
+                entryDescription = entryDescription + string
                 
             case "pubDate":
                 entryPubDate = entryPubDate + string
             case "link":
                 entryLink = entryLink + string
+                
             default: break
                 
             }
@@ -102,6 +105,8 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
                     entryNews.newsPubDate = entryPubDate}
                 if entryLink != nil{
                     entryNews.newsLink = entryLink}
+                if entryImageLink != nil{
+                    entryNews.newsImageLink = entryImageLink}
                 news.append(entryNews)
                 weAreInsideAnItem = false
             }
@@ -129,6 +134,14 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! NewsTableViewCell
         
         let newsObj = news[indexPath.row]
+        
+        if let urlOfNews = NSURL(string: newsObj.newsImageLink){
+            if let data = NSData(contentsOfURL: urlOfNews){
+                cell.photoImageView.contentMode = UIViewContentMode.ScaleAspectFit
+                cell.photoImageView.image = UIImage(data: data)
+            }
+        }
+        
         cell.headNameLabel.text = newsObj.newsTitle
         cell.descriptionLabel.text = newsObj.newsDescription
         cell.dateLabel.text = newsObj.newsPubDate
