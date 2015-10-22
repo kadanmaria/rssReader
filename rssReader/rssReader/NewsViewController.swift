@@ -17,6 +17,7 @@ class NewsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let webUrl = NSURL (string: url)
         let requestObj = NSURLRequest(URL: webUrl!)
         newsWebView.loadRequest(requestObj)

@@ -10,8 +10,7 @@ import UIKit
 
 class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
    
-    
-   //MARK: Parser
+    //MARK: Parser
     
     var xmlParser: NSXMLParser!
     var news = [News]()
@@ -26,14 +25,7 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
     var currentParsedElement = String()
     var weAreInsideAnItem = false
     
-    func refreshNews(){
-        //let urlString = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
-        let urlString = NSURL(string: "http://news.tut.by/rss/index.rss")
-        //let urlString = NSURL(string: "http://deepapple.com/news/rss/rss.xmlinfo.plist")
-        let xmlParser = NSXMLParser(contentsOfURL: urlString!)
-        xmlParser!.delegate = self
-        xmlParser!.parse()
-    }
+    
     
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
@@ -68,14 +60,11 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
             case "title":
                 entryTitle = entryTitle + string
             case "description":
-                
                 entryDescription = entryDescription + string
-                
             case "pubDate":
                 entryPubDate = entryPubDate + string
             case "link":
                 entryLink = entryLink + string
-                
             default: break
                 
             }
@@ -100,7 +89,8 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
                 if entryTitle != nil{
                     entryNews.newsTitle = entryTitle}
                 if entryDescription != nil{
-                    entryNews.newsDescription = entryDescription}
+                    let str = entryDescription.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+                    entryNews.newsDescription = str}
                 if entryPubDate != nil {
                     entryNews.newsPubDate = entryPubDate}
                 if entryLink != nil{
@@ -112,8 +102,16 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
             }
         }
     }
-    
-    
+
+       
+    func refreshNews(){
+        //let urlString = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
+        let urlString = NSURL(string: "http://news.tut.by/rss/index.rss")
+        //let urlString = NSURL(string: "http://deepapple.com/news/rss/rss.xmlinfo.plist")
+        let xmlParser = NSXMLParser(contentsOfURL: urlString!)
+        xmlParser!.delegate = self
+        xmlParser!.parse()
+    }
 
     // MARK: - Table view data source
 
