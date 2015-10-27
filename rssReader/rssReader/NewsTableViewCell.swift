@@ -19,6 +19,14 @@ class NewsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func prepareForReuse() {
+        headNameLabel.text = ""
+        descriptionLabel.text=""
+        dateLabel.text=""
+        photoImageView.image=nil
+        
+    }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

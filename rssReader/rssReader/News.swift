@@ -8,7 +8,7 @@
 
 import UIKit
 
-class News: NSObject{
+class News: NSObject {
     var newsTitle = ""
     var newsDescription = ""
     var newsPubDate = ""

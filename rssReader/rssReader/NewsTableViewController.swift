@@ -15,11 +15,11 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
     var xmlParser: NSXMLParser!
     var news = [News]()
     
-    var entryTitle: String!
-    var entryDescription: String!
-    var entryPubDate: String!
-    var entryLink: String!
-    var entryImageLink: String!
+    var entryTitle: String?
+    var entryDescription: String?
+    var entryPubDate: String?
+    var entryLink: String?
+    var entryImageLink: String?
     
     
     var currentParsedElement = String()
@@ -58,13 +58,18 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
         if weAreInsideAnItem{
             switch currentParsedElement{
             case "title":
-                entryTitle = entryTitle + string
+                if let titleOfNews = entryTitle{
+                    entryTitle = titleOfNews + string
+                }
             case "description":
-                entryDescription = entryDescription + string
+                if let descriptionOfNews = entryDescription{
+                    entryDescription = descriptionOfNews + string}
             case "pubDate":
-                entryPubDate = entryPubDate + string
+                if let pubDateOfNews = entryPubDate{
+                     entryPubDate = pubDateOfNews + string}
             case "link":
-                entryLink = entryLink + string
+                if let linkOfNews = entryLink{
+                    entryLink = linkOfNews + string}
             default: break
                 
             }
@@ -86,17 +91,18 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
             }
             if elementName == "item"{
                 let entryNews = News()
-                if entryTitle != nil{
-                    entryNews.newsTitle = entryTitle}
-                if entryDescription != nil{
-                    let str = entryDescription.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+                
+                if let tempTitle = entryTitle {
+                    entryNews.newsTitle = tempTitle}
+                if let tempDescription = entryDescription{
+                    let str = tempDescription.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
                     entryNews.newsDescription = str}
-                if entryPubDate != nil {
-                    entryNews.newsPubDate = entryPubDate}
-                if entryLink != nil{
-                    entryNews.newsLink = entryLink}
-                if entryImageLink != nil{
-                    entryNews.newsImageLink = entryImageLink}
+                if let tempPubDate = entryPubDate {
+                    entryNews.newsPubDate = tempPubDate}
+                if let tempLink = entryLink{
+                    entryNews.newsLink = tempLink}
+                if let tempImageLink = entryImageLink{
+                    entryNews.newsImageLink = tempImageLink}
                 news.append(entryNews)
                 weAreInsideAnItem = false
             }
