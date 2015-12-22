@@ -14,24 +14,23 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var Indicator: UIActivityIndicatorView!
+    var indexOfCell = Int()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func prepareForReuse() {
         headNameLabel.text = ""
-        descriptionLabel.text=""
-        dateLabel.text=""
-        photoImageView.image=nil
-        
+        descriptionLabel.text = ""
+        dateLabel.text = ""
+        photoImageView.image = nil
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

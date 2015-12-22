@@ -8,18 +8,19 @@
 
 import UIKit
 
-class NewsCollectionViewController: UICollectionViewController {
+class NewsScrollViewController: UIViewController{
 
     var url=""
     
-
-
 //    @IBOutlet weak var UrlLabel: UILabel!
         
+    @IBOutlet weak var urlLabel: UILabel!
+    
+    @IBOutlet weak var newsScrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  //      UrlLabel.text = url
+        urlLabel.text = url
     }
 
 

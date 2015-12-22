@@ -14,4 +14,8 @@ class News: NSObject {
     var newsPubDate = ""
     var newsImageLink = ""
     var newsLink = ""
+    
+
+
+    
 }

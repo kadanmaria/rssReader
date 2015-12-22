@@ -16,15 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="photo1" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-u4-wWQ">
-                                <rect key="frame" x="200" y="175" width="201" height="250"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="nPD-nh-bEA">
+                                <rect key="frame" x="175" y="200" width="250" height="200"/>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" image="YES"/>
+                        </accessibility>
                         <constraints>
-                            <constraint firstItem="cCh-u4-wWQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dNY-oh-z9q"/>
-                            <constraint firstItem="cCh-u4-wWQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eLm-OC-EHP"/>
+                            <constraint firstItem="nPD-nh-bEA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1nF-ng-FNx"/>
+                            <constraint firstItem="nPD-nh-bEA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Xrc-py-ChY"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -34,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="photo1" width="201" height="250"/>
+        <image name="Launch" width="250" height="200"/>
     </resources>
 </document>

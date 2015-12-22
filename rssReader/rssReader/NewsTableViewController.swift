@@ -1,123 +1,12 @@
-//
-//  MyFirstClassTableViewController.swift
-//  rssReader
-//
-//  Created by iStudent on 10/8/15.
-//  Copyright © 2015 iStudent. All rights reserved.
-//
 
 import UIKit
 
-class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
+class NewsTableViewController: UITableViewController {
    
-    //MARK: Parser
-    
-    var xmlParser: NSXMLParser!
+   
     var news = [News]()
+    let parser = Parser()
     
-    var entryTitle: String?
-    var entryDescription: String?
-    var entryPubDate: String?
-    var entryLink: String?
-    var entryImageLink: String?
-    
-    
-    var currentParsedElement = String()
-    var weAreInsideAnItem = false
-    
-    
-    
-    
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        if elementName == "item"{
-            weAreInsideAnItem = true
-        }
-        if weAreInsideAnItem{
-            switch elementName{
-            case "title":
-                entryTitle = String()
-                currentParsedElement = "title"
-            case "description":
-                entryDescription = String()
-                currentParsedElement = "description"
-            case "pubDate":
-                entryPubDate = String()
-                currentParsedElement = "pubDate"
-            case "link":
-                entryLink = String()
-                currentParsedElement = "link"
-            case "enclosure":
-                entryImageLink = attributeDict["url"] as String!
-                currentParsedElement = "enclosure"
-            default: break
-            }
-        }
-    }
-    
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
-        if weAreInsideAnItem{
-            switch currentParsedElement{
-            case "title":
-                if let titleOfNews = entryTitle{
-                    entryTitle = titleOfNews + string
-                }
-            case "description":
-                if let descriptionOfNews = entryDescription{
-                    entryDescription = descriptionOfNews + string}
-            case "pubDate":
-                if let pubDateOfNews = entryPubDate{
-                     entryPubDate = pubDateOfNews + string}
-            case "link":
-                if let linkOfNews = entryLink{
-                    entryLink = linkOfNews + string}
-            default: break
-                
-            }
-        }
-    }
-    
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if weAreInsideAnItem{
-            switch elementName{
-            case "title":
-                currentParsedElement = ""
-            case "description":
-                currentParsedElement = ""
-            case "pubDate":
-                currentParsedElement = ""
-            case "link":
-                currentParsedElement = ""
-            default: break
-            }
-            if elementName == "item"{
-                let entryNews = News()
-                
-                if let tempTitle = entryTitle {
-                    entryNews.newsTitle = tempTitle}
-                if let tempDescription = entryDescription{
-                    let str = tempDescription.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
-                    entryNews.newsDescription = str}
-                if let tempPubDate = entryPubDate {
-                    entryNews.newsPubDate = tempPubDate}
-                if let tempLink = entryLink{
-                    entryNews.newsLink = tempLink}
-                if let tempImageLink = entryImageLink{
-                    entryNews.newsImageLink = tempImageLink}
-                news.append(entryNews)
-                weAreInsideAnItem = false
-            }
-        }
-    }
-
-       
-    func refreshNews(){
-        //let urlString = NSURL(string: "https://developer.apple.com/news/rss/news.rss")
-        let urlString = NSURL(string: "http://news.tut.by/rss/index.rss")
-        //let urlString = NSURL(string: "http://deepapple.com/news/rss/rss.xmlinfo.plist")
-        let xmlParser = NSXMLParser(contentsOfURL: urlString!)
-        xmlParser!.delegate = self
-        xmlParser!.parse()
-    }
 
     // MARK: - Table view data source
 
@@ -130,7 +19,6 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
         // #warning Incomplete implementation, return the number of rows
         return news.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        
@@ -138,18 +26,24 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! NewsTableViewCell
         
         let newsObj = news[indexPath.row]
-        
-        if let urlOfNews = NSURL(string: newsObj.newsImageLink){
-            if let data = NSData(contentsOfURL: urlOfNews){
-                cell.photoImageView.contentMode = UIViewContentMode.ScaleAspectFit
-                cell.photoImageView.image = UIImage(data: data)
-            }
-        }
-        
         cell.headNameLabel.text = newsObj.newsTitle
         cell.descriptionLabel.text = newsObj.newsDescription
         cell.dateLabel.text = newsObj.newsPubDate
+        cell.Indicator.startAnimating()
+        cell.indexOfCell = indexPath.row
         
+        let queue : dispatch_queue_t = dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)
+        dispatch_async(queue, {() -> Void in
+        if let urlOfNews = NSURL(string: newsObj.newsImageLink){
+            let data = NSData(contentsOfURL: urlOfNews)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if (cell.indexOfCell == indexPath.row){
+                    cell.photoImageView.contentMode = UIViewContentMode.ScaleAspectFit
+                    cell.photoImageView.image = UIImage(data: data!)
+                    cell.Indicator.stopAnimating()}
+            })
+            }
+        })
         return cell
     }
     
@@ -157,7 +51,10 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshNews()
+        if let urlString = NSURL(string: "http://news.tut.by/rss/index.rss"){
+            parser.refreshNews(urlString)
+        }
+        news = parser.news
     }
     
     
@@ -204,12 +101,10 @@ class NewsTableViewController: UITableViewController, NSXMLParserDelegate {
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "WebViewSegue"{
-            let destinationVC = segue.destinationViewController as! NewsViewController
+        if segue.identifier == "ShowNewsSegue"{
+            let destinationVC = segue.destinationViewController as! NewsScrollViewController
             if let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow{
                 destinationVC.url = news[indexPath.row].newsLink
             }

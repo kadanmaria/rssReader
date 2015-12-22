@@ -44,6 +44,9 @@
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                         </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6oG-oG-bA7">
+                                            <rect key="frame" x="40" y="40" width="20" height="20"/>
+                                        </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1c-BZ-Bix">
                                             <rect key="frame" x="105" y="51" width="479" height="46"/>
                                             <constraints>
@@ -61,9 +64,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="szS-nC-Al1" firstAttribute="leading" secondItem="9UY-RY-ycV" secondAttribute="leading" id="0ET-NV-ynf"/>
+                                        <constraint firstItem="6oG-oG-bA7" firstAttribute="leading" secondItem="fAn-i0-7y5" secondAttribute="leadingMargin" constant="32" id="4Gu-W8-NVq"/>
                                         <constraint firstItem="szS-nC-Al1" firstAttribute="top" secondItem="fAn-i0-7y5" secondAttribute="top" id="5mo-RV-PjL"/>
                                         <constraint firstItem="9UY-RY-ycV" firstAttribute="leading" secondItem="c1c-BZ-Bix" secondAttribute="leading" id="6b9-Oa-isc"/>
                                         <constraint firstItem="eA8-Mi-9n9" firstAttribute="top" secondItem="fAn-i0-7y5" secondAttribute="topMargin" constant="-5" id="Cuw-KS-u3G"/>
+                                        <constraint firstItem="6oG-oG-bA7" firstAttribute="centerY" secondItem="eA8-Mi-9n9" secondAttribute="centerY" id="D9Z-3Z-76r"/>
+                                        <constraint firstItem="6oG-oG-bA7" firstAttribute="centerX" secondItem="eA8-Mi-9n9" secondAttribute="centerX" id="DtB-Vy-MLo"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="c1c-BZ-Bix" secondAttribute="trailing" constant="8" id="HMt-UC-Xh4"/>
                                         <constraint firstItem="9UY-RY-ycV" firstAttribute="trailing" secondItem="c1c-BZ-Bix" secondAttribute="trailing" id="PUn-dM-d6L"/>
                                         <constraint firstItem="c1c-BZ-Bix" firstAttribute="bottom" secondItem="eA8-Mi-9n9" secondAttribute="bottom" id="QpX-qC-R2N"/>
@@ -76,11 +82,12 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="Indicator" destination="6oG-oG-bA7" id="5Bf-U5-1lz"/>
                                     <outlet property="dateLabel" destination="9UY-RY-ycV" id="U9u-zl-IOI"/>
                                     <outlet property="descriptionLabel" destination="c1c-BZ-Bix" id="Tew-tV-fZG"/>
                                     <outlet property="headNameLabel" destination="szS-nC-Al1" id="OSi-eP-zzv"/>
                                     <outlet property="photoImageView" destination="eA8-Mi-9n9" id="EMr-2S-nGl"/>
-                                    <segue destination="xkH-NR-TXb" kind="show" identifier="WebViewSegue" id="OVJ-fM-SJc"/>
+                                    <segue destination="uRu-zl-4k6" kind="show" identifier="ShowNewsSegue" id="Qtf-Eb-exS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,6 +104,61 @@
             </objects>
             <point key="canvasLocation" x="-49" y="191"/>
         </scene>
+        <!--News Scroll View Controller-->
+        <scene sceneID="hbJ-9s-gEa">
+            <objects>
+                <viewController id="uRu-zl-4k6" customClass="NewsScrollViewController" customModule="rssReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HmU-Ip-wQm"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qkg-6i-wci"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SdV-gP-qZb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dL1-MD-tLQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUh-WK-NQC">
+                                        <rect key="frame" x="92" y="231" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="GUh-WK-NQC" secondAttribute="bottom" constant="348" id="1sA-BQ-c4p"/>
+                                    <constraint firstItem="GUh-WK-NQC" firstAttribute="top" secondItem="dL1-MD-tLQ" secondAttribute="top" constant="231" id="Kka-nb-TLn"/>
+                                    <constraint firstAttribute="trailing" secondItem="GUh-WK-NQC" secondAttribute="trailing" constant="466" id="WL7-BG-Jt7"/>
+                                    <constraint firstItem="GUh-WK-NQC" firstAttribute="leading" secondItem="dL1-MD-tLQ" secondAttribute="leading" constant="92" id="hq8-Cv-hxK"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dL1-MD-tLQ" firstAttribute="top" secondItem="SdV-gP-qZb" secondAttribute="top" id="6Dm-YR-mPM"/>
+                            <constraint firstItem="dL1-MD-tLQ" firstAttribute="bottom" secondItem="Qkg-6i-wci" secondAttribute="top" id="8a2-BD-i7m"/>
+                            <constraint firstItem="dL1-MD-tLQ" firstAttribute="leading" secondItem="SdV-gP-qZb" secondAttribute="leading" id="kZc-Oo-gC7"/>
+                            <constraint firstAttribute="trailing" secondItem="dL1-MD-tLQ" secondAttribute="trailing" id="pJW-lC-FEZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gi8-Za-wlO">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="CDh-Qg-51I"/>
+                        <barButtonItem key="rightBarButtonItem" image="Web" id="SlU-X5-VIG">
+                            <connections>
+                                <segue destination="xkH-NR-TXb" kind="show" identifier="WebViewSegue" id="ge8-n7-b42"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="newsScrollView" destination="dL1-MD-tLQ" id="XT3-AD-l8V"/>
+                        <outlet property="urlLabel" destination="GUh-WK-NQC" id="V0b-Gh-bO5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LdS-vp-sVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="656" y="191"/>
+        </scene>
         <!--News-->
         <scene sceneID="NuW-be-NdI">
             <objects>
@@ -110,7 +172,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PFf-QZ-jL2">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
@@ -119,7 +181,7 @@
                             <constraint firstItem="ieB-4W-nVC" firstAttribute="top" secondItem="PFf-QZ-jL2" secondAttribute="bottom" id="O8Y-vs-yae"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PFf-QZ-jL2" secondAttribute="trailing" constant="-20" id="Oc1-of-sty"/>
                             <constraint firstItem="PFf-QZ-jL2" firstAttribute="leading" secondItem="9AJ-CM-OZZ" secondAttribute="leadingMargin" constant="-20" id="prp-xE-krG"/>
-                            <constraint firstItem="PFf-QZ-jL2" firstAttribute="top" secondItem="8Vq-GN-l0A" secondAttribute="bottom" id="wHN-7X-HGK"/>
+                            <constraint firstItem="PFf-QZ-jL2" firstAttribute="top" secondItem="8Vq-GN-l0A" secondAttribute="bottom" constant="-64" id="wHN-7X-HGK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="News" id="FXZ-5I-PAm"/>
@@ -129,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTC-rx-8A0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686" y="191"/>
+            <point key="canvasLocation" x="1336" y="191"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tD4-ed-vAY">
@@ -149,6 +211,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Web" width="21" height="21"/>
         <image name="photo1" width="201" height="250"/>
     </resources>
 </document>
