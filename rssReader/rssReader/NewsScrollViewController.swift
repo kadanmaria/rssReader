@@ -8,13 +8,20 @@
 
 import UIKit
 
-class NewsScrollViewController: UIViewController {
+class NewsCollectionViewController: UICollectionViewController {
 
+    var url=""
+    
+
+
+//    @IBOutlet weak var UrlLabel: UILabel!
+        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+  //      UrlLabel.text = url
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -22,14 +29,15 @@ class NewsScrollViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    //MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "WebViewSegue"{
+            let destinationVC = segue.destinationViewController as! NewsViewController
+                destinationVC.url = url
+            
+        }
+        
     }
-    */
-
 }
